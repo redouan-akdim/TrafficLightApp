@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.trafficLightButton.setBackgroundColor(Color.RED)
 
         // Click listener for the traffic light button
         binding.trafficLightButton.setOnClickListener{
