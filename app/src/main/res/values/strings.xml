@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TrafficLightApp</string>
+    <string name="traffic_light_button">Button</string>
 </resources>
