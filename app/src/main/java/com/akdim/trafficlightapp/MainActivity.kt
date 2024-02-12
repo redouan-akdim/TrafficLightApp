@@ -1,5 +1,6 @@
 package com.akdim.trafficlightapp
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
@@ -18,20 +19,24 @@ class MainActivity : AppCompatActivity() {
     private var isWait:Boolean = false
     private var isStop:Boolean = true
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Set binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.trafficLightButton.setBackgroundColor(Color.RED)
+        trafficLightButton = binding.trafficLightButton
+
+        // Set initial color of button to red
+        trafficLightButton.setBackgroundColor(Color.RED)
 
         // Click listener for the traffic light button
-        binding.trafficLightButton.setOnClickListener{
+        trafficLightButton.setOnClickListener{
             if (isStop) {
                 // Change button
-                binding.trafficLightButton.text = "Go"
-                binding.trafficLightButton.setBackgroundColor(Color.GREEN)
+                trafficLightButton.text = "Go"
+                trafficLightButton.setBackgroundColor(Color.GREEN)
 
                 isStop = false
                 isGo = true
@@ -43,8 +48,8 @@ class MainActivity : AppCompatActivity() {
             }
             else if(isGo){
                 // Change button
-                binding.trafficLightButton.text = "Wait"
-                binding.trafficLightButton.setBackgroundColor(Color.YELLOW)
+                trafficLightButton.text = "Wait"
+                trafficLightButton.setBackgroundColor(Color.YELLOW)
 
                 isStop = false
                 isGo = false
@@ -56,8 +61,8 @@ class MainActivity : AppCompatActivity() {
             }
             else{
                 // Change button
-                binding.trafficLightButton.text = "Stop"
-                binding.trafficLightButton.setBackgroundColor(Color.RED)
+                trafficLightButton.text = "Stop"
+                trafficLightButton.setBackgroundColor(Color.RED)
 
                 isStop = true
                 isGo = false
